@@ -14,8 +14,8 @@ void printMatrix(int* matrix, int m)
 
 void rotateMatrix(int* matrix, int m) 
 {
-   for (int i = 0; i < m / 2; i++) 
-   {
+    for (int i = 0; i < m / 2; i++) 
+    {
         for (int j = i; j < m - i - 1; j++) 
         {
             int temp = matrix[i * m + j];
@@ -32,11 +32,14 @@ int main()
     int m;
     std::cin >> m;
 
-    int* matrix = new int[m];
+    int* matrix = new int[m * m];
 
     for (int i = 0; i < m; i++) 
     {
-        matrix[i] = i + 1;
+        for (int j = 0; j < m; j++) 
+        {
+            matrix[i * m + j] = i * m + j + 1;
+        }
     }
 
     rotateMatrix(matrix, m);
