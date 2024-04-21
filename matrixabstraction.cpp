@@ -45,6 +45,11 @@ public:
         {
             return *this; 
         }
+        for (int i = 0; i < cols; ++i) 
+        {
+            delete[] mat[i];
+        }
+        delete[] mat;
         this->cols = obj.cols;
         this->rows = obj.rows;
         this->mat = new int*[cols];
