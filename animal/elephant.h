@@ -6,7 +6,7 @@ private:
     std::string location;
 
 public:
-    Elephant(const std::string&,const int& age,const std::string& location);
+    Elephant(const std::string&,const int& age,  const int&, const std::string&);
 
     virtual void print();
 

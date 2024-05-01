@@ -1,11 +1,11 @@
 #include <iostream>
 #include "dog.h"
 
-Dog::Dog(const std::string& name, const int& age, const std::string& breed) : Animal(name, age), breed(breed)
+Dog::Dog(const std::string& name, const int& age,  const int& weight, const std::string& breed) : Animal(name, age, weight), breed(breed)
 {}
 void Dog::print()
 {
-    std::cout << "My name is " << name << ", my age is " << age << " and my breed is " << breed << std::endl;
+    std::cout << "My name is " << name << ", my age is " << age << ", my weight is " << weight << " and my breed is " << breed << std::endl;
 }
 void Dog::voice()
 {

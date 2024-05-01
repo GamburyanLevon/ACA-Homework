@@ -6,7 +6,7 @@ private:
     std::string habitat;
 
 public:
-    Fish(const std::string&, const int&, const std::string&);
+    Fish(const std::string&, const int&, const int&, const std::string&);
 
     virtual void print();
 

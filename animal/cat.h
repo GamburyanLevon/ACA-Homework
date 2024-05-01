@@ -6,7 +6,7 @@ private:
     std::string color;
 
 public:
-    Cat(const std::string&, const int&, const  std::string&);
+    Cat(const std::string&, const int&, const int&, const  std::string&);
 
     virtual void print();
 

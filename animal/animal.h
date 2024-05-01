@@ -5,13 +5,14 @@ class Animal {
 protected:
     std::string name;
     int age;
+    int weight;
 
 public:
-    Animal(const std::string&, const int&);
+    Animal(const std::string&, const int& , const int&);
 
     virtual ~Animal();
 
-    virtual void print();
+    virtual void print() = 0;
 
-    virtual void voice();
+    virtual void voice() = 0;
 };

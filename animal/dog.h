@@ -6,7 +6,7 @@ private:
     std::string breed;
 
 public:
-    Dog(const std::string&, const int&, const std::string&);
+    Dog(const std::string&, const int&, const int&, const std::string&);
 
     virtual void print();
 

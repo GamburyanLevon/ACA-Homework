@@ -1,12 +1,12 @@
 #include <iostream>
 #include "elephant.h"
 
-Elephant::Elephant(const std::string& name, const int& age, const std::string& location) : Animal(name, age), location(location)
+Elephant::Elephant(const std::string& name, const int& age,  const int& weight, const std::string& location) : Animal(name, age, weight), location(location)
 {}
 
 void Elephant::print()
 {
-    std::cout << "My name is " << name << ", my age is " << age << " and my location is " << location << std::endl;
+    std::cout << "My name is " << name << ", my age is " << age << ", my weight is " << weight  << " and my location is " << location << std::endl;
 }
 void Elephant::voice()
 {

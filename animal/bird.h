@@ -6,7 +6,7 @@ private:
     std::string species;
 
 public:
-    Bird(const std::string&, const int&, const std::string&);
+    Bird(const std::string&, const int&, const int&, const std::string&);
 
     virtual void print();
 
