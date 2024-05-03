@@ -1,7 +1,8 @@
 #pragma once
 #include <string>
+#include "carsinterface.h"
 
-class Car 
+class Car: public Carsinterface
 {
 protected:
     std::string model;
@@ -12,8 +13,4 @@ protected:
 public:
     Car(const std::string&, const int&, const int&, const int&);
     virtual ~Car();
-    virtual std::string getModel() const = 0;
-    virtual int getYear() const = 0;
-    virtual double getPrice() const = 0;
-    virtual void print() = 0; 
 };
