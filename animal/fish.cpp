@@ -1,8 +1,12 @@
 #include <iostream>
 #include "fish.h"
 
+int Fish::count = 0;
+
 Fish::Fish(const std::string& name, const int& age,  const int& weight, const std::string& habitat) : Animal(name, age, weight), habitat(habitat)
-{}
+{
+    count++;
+}
 
 void Fish::print()
 {
@@ -14,5 +18,15 @@ void Fish::voice()
 }
 Fish::~Fish()
 {
+    count--;
     std::cout << __func__ << std::endl;
+}
+Fish::Fish(const Fish& obj) : Animal(obj.name, obj.age, obj.weight)
+{
+    count++;
+    habitat = obj.habitat;
+}
+int Fish::getCount() const
+{
+    return count;
 }

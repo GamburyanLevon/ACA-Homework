@@ -20,6 +20,7 @@ int main()
         animal->voice();
         animal->print();
     }
+    std::cout << fish->getCount() << std::endl;
 
     for (Animal *animal : animals) {
         delete animal;

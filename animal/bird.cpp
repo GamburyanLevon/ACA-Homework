@@ -1,8 +1,12 @@
 #include <iostream>
 #include "bird.h"
 
+int Bird::count = 0;
+
 Bird::Bird(const std::string& name, const int& age,  const int& weight,  const std::string& species) : Animal(name, age, weight), species(species)
-{}
+{
+    count++;
+}
 
 void Bird::print()
 {
@@ -14,5 +18,15 @@ void Bird::voice()
 }
 Bird::~Bird()
 {
+    count--;
     std::cout << __func__ << std::endl;
+}
+Bird::Bird(const Bird& obj) : Animal(obj.name, obj.age, obj.weight)
+{
+    count++;
+    species = obj.species;
+}
+int Bird::getCount() const
+{
+    return count;
 }
