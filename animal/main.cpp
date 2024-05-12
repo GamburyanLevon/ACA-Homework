@@ -5,26 +5,31 @@
 #include "bird.h"
 #include "fish.h"
 #include "elephant.h"
+#include "zoo.h"
 
 int main()
 {
-    Dog *dog = new Dog("Jeko", 3, 15, "Labrador");
-    Cat *cat = new Cat("Mity", 2, 3, "White");
-    Bird *bird = new Bird("Trchun", 1, 1, "Canary");
-    Fish *fish = new Fish("Nemo", 2, 2, "Coral reef");
-    Elephant *elephant = new Elephant("Dumbo", 5, 1000, "Africa");
+    zoo* myZoo = zoo::getInstance();
 
-    Animal *animals[] = {dog, cat, bird, fish, elephant};
-    for (Animal *animal : animals) 
-    {
-        animal->voice();
-        animal->print();
-    }
-    std::cout << fish->getCount() << std::endl;
+    Dog dog("Jeko", 3, 15, "Labrador");
+    Cat cat ("Mity", 2, 3, "White");
+    Bird bird("Trchun", 1, 1, "Canary");
+    Fish fish("Nemo", 2, 2, "Coral reef");
+    Elephant elephant("Dumbo", 5, 1000, "Africa");
 
-    for (Animal *animal : animals) {
-        delete animal;
-    }
+    myZoo->registerAnimal(dog);
+    myZoo->registerAnimal(cat);
+    myZoo->registerAnimal(fish);
+    myZoo->registerAnimal(bird);
+    myZoo->registerAnimal(elephant);
+
+    myZoo->print();
+
+    myZoo->removeTheLastAnimal();
+
+    myZoo->print();
+
+    zoo* hiszoo = zoo::getInstance();
 
     return 0;
 }

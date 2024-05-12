@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall
 TARGET = myprogram
 
-SRCS = main.cpp dog.cpp cat.cpp bird.cpp fish.cpp elephant.cpp animal.cpp
+SRCS = main.cpp dog.cpp cat.cpp bird.cpp fish.cpp elephant.cpp animal.cpp zoo.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 $(TARGET): $(OBJS)
