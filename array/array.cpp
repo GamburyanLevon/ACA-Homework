@@ -5,7 +5,6 @@ Array::Array(int size) : size(size)
     arr = new int[size];
     init();
 }
-
 Array::Array(int *obj, int size) : size(size)
 {
     arr = new int[size];
@@ -14,7 +13,6 @@ Array::Array(int *obj, int size) : size(size)
         arr[i] = obj[i];
     }
 }
-
 Array::Array(const Array &obj) 
 {
     size = obj.size;
@@ -51,4 +49,19 @@ std::ostream& operator<<(std::ostream &out, const Array &array)
     }
     out << "]";
     return out;
+}
+
+Array& Array::operator++()
+{
+    for (int i = 0; i < size; i++)
+    {
+        ++arr[i];
+    }
+    return *this;
+}
+Array Array::operator++(int)
+{
+    Array temp(*this);
+    ++(*this);
+    return temp;
 }

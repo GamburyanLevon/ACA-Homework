@@ -12,6 +12,8 @@ int main() {
     std::cout << "Array 3 (copy of Array 1): " << arr3 << std::endl;
 
     std::cout << "Value at index 2 of Array 2: " << arr2[2] << std::endl;
-
+    std::cout << ++arr2 << std::endl;
+    arr1++;
+    std::cout << arr1 <<std::endl;
     return 0;
 }

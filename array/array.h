@@ -13,5 +13,7 @@ public:
     ~Array();
     void init();
     int& operator[](int index);
+    Array& operator++();
+    Array operator++(int);
     friend std::ostream& operator<<(std::ostream &out, const Array &array);
 };
