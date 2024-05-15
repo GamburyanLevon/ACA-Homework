@@ -9,7 +9,7 @@ private:
 public:
     chessboard();
     void placepiece(const std::string&, figure*);
-    bool checkmateinone(const std::string&);
+    bool checkmateinone();
     bool isCheckmate(const std::string&);
     bool ischeck(const std::string&);
     void print();

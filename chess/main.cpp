@@ -32,7 +32,7 @@ int main()
         board.print();
     
         std::cout << std::endl;
-        if (!board.checkmateinone("G8"))
+        if (!board.checkmateinone())
         {
             std::cout << "there is no mate";
         }

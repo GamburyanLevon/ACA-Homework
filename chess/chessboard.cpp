@@ -31,21 +31,38 @@ void chessboard::placepiece(const std::string& pos, figure* piece)
     if (row < 0 || row >= 8 || col < 0 || col >= 8) 
     {
         std::cout << "Invalid position" << std::endl;
+        chessboard::isInBoard = false;
         return;
     }
 
     delete board[row][col];
     board[row][col] = piece; 
 }
-bool chessboard::checkmateinone(const std::string& kingPosition) {
+bool chessboard::checkmateinone() {
+    std::string kingPosition;
+    for (int row = 0; row < 8; row++)
+    {
+        for (int col = 0; col < 8; col++)
+        {
+            figure* piece = board[row][col];
+            if (piece != nullptr && piece->getSymbol() == 'K')
+            {
+                kingPosition = std::string(1, col + 'A') + std::to_string(row + 1);
+                break;
+            }
+        }
+    }
+    
     if (isCheckmate(kingPosition) && !cancapture(kingPosition)) 
     {
         std::cout << "Is already checkmate" << std::endl;
         return true;
     }
 
-    for (int row = 0; row < 8; ++row) {
-        for (int col = 0; col < 8; ++col) {
+    for (int row = 0; row < 8; ++row) 
+    {
+        for (int col = 0; col < 8; ++col) 
+        {
             figure* piece = board[row][col];
             if (piece != nullptr && piece->getSymbol() != 'K') 
             {
