@@ -60,3 +60,7 @@ int bishop::getCol() const
     int col = position[0] - 'A';
     return col;
 }
+std::string bishop::getColor() const
+{
+    return color;
+}

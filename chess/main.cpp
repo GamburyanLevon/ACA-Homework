@@ -12,19 +12,19 @@ int main()
 {
     chessboard board;
 
-    board.placepiece("G7", new queen("G7", "White"));
+    board.placepiece("B8", new queen("B8", "White"));
     // board.placepiece("G7", new pawn("G7", "White"));
     // board.placepiece("A7", new rook("A7", "White"));
     // board.placepiece("C2", new rook("C2", "White"));
     // board.placepiece("H4", new rook("H4", "White"));
     // board.placepiece("G1", new bishop("G1", "White"));
     // board.placepiece("G3", new bishop("G3", "White"));
-    board.placepiece("C7", new pawn("C7", "White"));
+    // board.placepiece("C7", new pawn("C7", "White"));
     // board.placepiece("A1", new pawn("A1", "White"));
-    board.placepiece("G8", new king("G8", "Black"));
-    // board.placepiece("C8", new king("C8", "White"));
+    board.placepiece("A8", new king("A8", "Black"));
+    board.placepiece("C8", new king("C8", "White"));
     // board.placepiece("B1", new rook("B1", "White"));
-    board.placepiece("A7", new rook("A7", "White"));
+    // board.placepiece("A7", new rook("A7", "White"));
     // board.placepiece("F6", new knight("F6", "White"));
 
     if (board.get())

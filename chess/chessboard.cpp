@@ -45,7 +45,7 @@ bool chessboard::checkmateinone() {
         for (int col = 0; col < 8; col++)
         {
             figure* piece = board[row][col];
-            if (piece != nullptr && piece->getSymbol() == 'K')
+            if (piece != nullptr && piece->getSymbol() == 'K' && piece->getColor() == "Black")
             {
                 kingPosition = std::string(1, col + 'A') + std::to_string(row + 1);
                 break;
@@ -104,10 +104,11 @@ bool chessboard::ischeck(const std::string& kingPosition)
     for (int row = 0; row < 8; ++row) {
         for (int col = 0; col < 8; ++col) {
             figure* piece = board[row][col];
-            if (piece != nullptr && piece->getSymbol() != 'K') 
+            if (piece != nullptr && piece->getColor() != "Black") 
             {
                 if (piece->isAttacking(kingPosition, board)) 
                 {
+                    
                     if (piece->getSymbol() == 'P')
                     {
                         int startCol = piece->getCol();
@@ -196,7 +197,7 @@ bool chessboard::cancapture(const std::string& kingPosition)
             std::string newKingPosition = std::string(1, newCol + 'A') + std::to_string(newRow + 1);
             figure* targetPiece = board[newRow][newCol];
 
-            if (targetPiece != nullptr) 
+            if (targetPiece != nullptr && targetPiece->getColor() != "Black") 
             {
                 figure* originalPiece = board[kingRow][kingCol];
 

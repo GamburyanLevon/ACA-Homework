@@ -12,4 +12,5 @@ public:
     char getSymbol() const override;
     int getRow() const override;
     int getCol() const override;
+    std::string getColor() const override;
 };

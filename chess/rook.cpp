@@ -64,3 +64,7 @@ int rook::getCol() const
     int col = position[0] - 'A';
     return col;
 }
+std::string rook::getColor() const
+{
+    return color;
+}

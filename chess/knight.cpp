@@ -50,3 +50,7 @@ int knight::getCol() const
     int col = position[0] - 'A';
     return col;
 }
+std::string knight::getColor() const
+{
+    return color;
+}

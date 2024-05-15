@@ -58,3 +58,7 @@ int queen::getCol() const
     int col = position[0] - 'A';
     return col;
 }
+std::string queen::getColor() const
+{
+    return color;
+}

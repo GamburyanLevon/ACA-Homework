@@ -16,4 +16,5 @@ public:
     virtual char getSymbol() const = 0;
     virtual int getRow() const = 0;
     virtual int getCol() const = 0;
+    virtual std::string getColor() const = 0;
 };

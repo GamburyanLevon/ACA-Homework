@@ -20,15 +20,11 @@ bool king::isAttacking(const std::string& p, figure* board[8][8])
 
     int rowDiff = abs(newRow - startRow);
     int colDiff = abs(newCol - startCol);
-    if ((rowDiff > 1 || colDiff > 1) || (rowDiff == 0 && colDiff == 0)) 
+    if ((rowDiff > 1 || colDiff > 1)) 
     {
         return false;
     }
 
-    if (board[newRow][newCol] != nullptr) 
-    {
-        return false;
-    }
     return true; 
 }
 void king::move(const std::string& newPos)
@@ -54,4 +50,8 @@ int king::getCol() const
 {
     int col = position[0] - 'A';
     return col;
+}
+std::string king::getColor() const
+{
+    return color;
 }
