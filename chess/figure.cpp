@@ -5,5 +5,5 @@ figure::figure(const std::string& position, const std::string& color) : position
 {}
 figure::~figure()
 {
-    std::cout << __func__ << std::endl;
+
 }

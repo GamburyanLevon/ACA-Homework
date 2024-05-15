@@ -3,38 +3,66 @@
 #include <cmath>
 
 pawn::pawn(const std::string& position, const std::string& color) : figure(position, color)
-{}
+{
+    symbol = 'P';
+}
 pawn::~pawn()
 {
-    std::cout << __func__ << std::endl;
+
 }
-bool pawn::isAttacking(const std::string& p)
+bool pawn::isAttacking(const std::string& p, figure* board[8][8])
 {
-    int currX = position[0] - 'A' + 1;
-    int currY = position[1] - '1' + 1;
+    int newRow = p[1] - '1';
+    int newCol = p[0] - 'A';
 
-    int targetX = p[0] - 'A' + 1;
-    int targetY = p[1] - '1' + 1;
+    int startRow = position[1] - '1';
+    int startCol = position[0] - 'A';
 
-    int dx = targetX - currX;
-    int dy = targetY - currY;
-
-    int direction = (color=="white") ? 1 : -1;
-   
-    if(targetX == currX && targetY == currY + direction)
+    int direction = (color == "White") ? 1 : -1;
+    
+    
+    if (newCol == startCol) 
     {
-        return true;
+        
+        if (newRow == startRow + direction && board[newRow][newCol] == nullptr) 
+        {
+            
+            return true;
+        }
+        if (startRow == (color == "white" ? 1 : 6) && newRow == startRow + 2 * direction && board[startRow + direction][newCol] == nullptr && board[newRow][newCol] == nullptr) 
+        {
+            return true;
+        }
+    }
+    
+    else if (abs(newCol - startCol) == 1 && newRow == startRow + direction) 
+    {
+        if (board[newRow][newCol] != nullptr) 
+        {
+            return true;
+        }
     }
     return false;
 }
 void pawn::move(const std::string& newPos)
 {
-    if (isAttacking(newPos))
-    {
-        position = newPos;
-    }
+    position = newPos;   
 }
 void pawn::print()
 {
     std::cout << "I am a " << color << " pawn and my position is " << position << std::endl;
+}
+char pawn::getSymbol() const
+{
+    return symbol;
+}
+int pawn::getRow() const
+{
+    int row = position[1] - '1';
+    return row;
+}
+int pawn::getCol() const
+{
+    int col = position[0] - 'A';
+    return col;
 }

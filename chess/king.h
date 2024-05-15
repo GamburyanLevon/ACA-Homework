@@ -1,11 +1,11 @@
 #pragma once
 #include "figure.h"
 
-class rook : public figure
+class king : public figure
 {
 public:
-    rook(const std::string&, const std::string&);
-    ~rook();
+    king(const std::string&, const std::string&);
+    ~king();
     virtual bool isAttacking(const std::string&, figure* board[8][8]);
     virtual void move(const std::string&);
     void print() override;

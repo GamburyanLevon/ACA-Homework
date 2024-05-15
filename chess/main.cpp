@@ -5,34 +5,40 @@
 #include "rook.h"
 #include "knight.h"
 #include "pawn.h"
+#include "king.h"
+#include "chessboard.h"
 
 int main()
 {
-    pawn* whitepawn = new pawn("A2", "white");
-    pawn* blackpawn = new pawn("D7", "black");
-    knight* whiteknight = new knight("G1", "white");
-    knight* blackknight = new knight("B8", "black");
-    bishop* whitebishop = new bishop("C1", "white");
-    bishop* blackbishop = new bishop("F8", "black");
-    rook* whiterook = new rook("H1", "white");
-    rook* blackrook = new rook("A8", "black");
-    queen* whitequeen = new queen("D1", "white");
-    queen* blackqueen = new queen("D8", "black");
+    chessboard board;
 
-    std::string pos[] ={"A3", "D6", "F3", "C6", "F4", "B4", "H3", "E8", "B3", "F6"};
+    board.placepiece("G7", new queen("G7", "White"));
+    // board.placepiece("G7", new pawn("G7", "White"));
+    // board.placepiece("A7", new rook("A7", "White"));
+    // board.placepiece("C2", new rook("C2", "White"));
+    // board.placepiece("H4", new rook("H4", "White"));
+    // board.placepiece("G1", new bishop("G1", "White"));
+    // board.placepiece("G3", new bishop("G3", "White"));
+    board.placepiece("C7", new pawn("C7", "White"));
+    // board.placepiece("A1", new pawn("A1", "White"));
+    board.placepiece("G8", new king("G8", "Black"));
+    // board.placepiece("C8", new king("C8", "White"));
+    // board.placepiece("B1", new rook("B1", "White"));
+    board.placepiece("A7", new rook("A7", "White"));
+    // board.placepiece("F6", new knight("F6", "White"));
 
-    figure* figures[] = {whitepawn, blackpawn, whiteknight,blackknight, whitebishop, blackbishop,
-        whiterook, blackrook, whitequeen, blackqueen};
-    int i = 0;
-    for (figure* figure : figures)
+    if (board.get())
     {
-        figure->move(pos[i]);
-        figure->print();
-        i++;
-    }
-    for (figure* figure : figures)
-    {
-        delete figure;
+        board.print();
+    
+        std::cout << std::endl;
+        if (!board.checkmateinone("G8"))
+        {
+            std::cout << "there is no mate";
+        }
+    
+        std::cout << std::endl;
     }
     
+    return 0;
 }

@@ -3,12 +3,14 @@
 #include <cmath>
 
 knight::knight(const std::string& position, const std::string& color) : figure(position, color)
-{}
+{
+    symbol = 'N';
+}
 knight::~knight()
 {
-    std::cout << __func__ << std::endl;
+
 }
-bool knight::isAttacking(const std::string& p)
+bool knight::isAttacking(const std::string& p, figure* board[8][8])
 {
     int currX = position[0] - 'A' + 1;
     int currY = position[1] - '1' + 1;
@@ -28,12 +30,23 @@ bool knight::isAttacking(const std::string& p)
 }
 void knight::move(const std::string& newPos)
 {
-    if (isAttacking(newPos))
-    {
-        position = newPos;
-    }
+    position = newPos;
 }
 void knight::print()
 {
     std::cout << "I am a " << color << " knight and my position is " << position << std::endl;
+}
+char knight::getSymbol() const
+{
+    return symbol;
+}
+int knight::getRow() const
+{
+    int row = position[1] - '1';
+    return row;
+}
+int knight::getCol() const
+{
+    int col = position[0] - 'A';
+    return col;
 }
