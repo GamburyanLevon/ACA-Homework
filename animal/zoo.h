@@ -8,11 +8,13 @@ private:
     int count;
     static zoo* instance;
     zoo();
+    zoo(const zoo&);
 public:
     ~zoo();
     static zoo* getInstance();
     void registerAnimal(Animal&);
     void removeTheLastAnimal();
     void print();
+    
     static int getount();
 };

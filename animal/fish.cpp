@@ -30,3 +30,16 @@ int Fish::getCount() const
 {
     return count;
 }
+int Fish::getAge()
+{
+    return age;
+}
+Fish::Fish(Fish&& obj) : Animal(obj.name, obj.age, obj.weight)
+{
+    habitat = obj.habitat;
+    
+    obj.name = " ";
+    obj.age = 0;
+    obj.weight = 0;
+    obj.habitat = " ";
+}

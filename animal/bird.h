@@ -6,10 +6,12 @@ private:
     std::string species;
     static int count;
 public:
-    Bird(const std::string&, const int&, const int&, const std::string&);
+    explicit Bird(const std::string&, const int&, const int&, const std::string&);
     Bird(const Bird&);
+    Bird(Bird&&);
     virtual void print();
     int getCount() const override;
     virtual void voice();
+    int getAge() override;
     ~Bird();
 };

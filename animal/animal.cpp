@@ -19,3 +19,30 @@ Animal::Animal(const Animal& obj)
     age = obj.age;
     weight = obj.weight;
 }
+bool Animal::operator==(const Animal& obj) const
+{
+    return this->age == obj.age;
+}
+
+bool Animal::operator>(const Animal& obj) const
+{
+    return this->age > obj.age;
+}
+bool Animal::operator<(const Animal& obj) const
+{
+    return this->age < obj.age;
+}
+Animal::Animal(Animal&& other) noexcept : name(std::move(other.name)), age(other.age) 
+{
+    other.age = 0;
+}
+Animal& Animal::operator=(Animal&& obj) noexcept 
+{
+    if (this != &obj) 
+    {
+        name = std::move(obj.name);
+        age = obj.age;
+        obj.age = 0;
+    }
+    return *this;
+}

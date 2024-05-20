@@ -10,7 +10,9 @@ public:
 
     virtual void print();
     Fish(const Fish&);
+    Fish(Fish&&);
     int getCount() const override;
     virtual void voice();
+    int getAge() override;
     ~Fish();
 };

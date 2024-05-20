@@ -30,3 +30,16 @@ int Elephant::getCount() const
 {
     return count;
 }
+int Elephant::getAge()
+{
+    return age;
+}
+Elephant::Elephant(Elephant&& obj) : Animal(obj.name, obj.age, obj.weight)
+{
+    location = obj.location;
+    
+    obj.name = " ";
+    obj.age = 0;
+    obj.weight = 0;
+    obj.location = " ";
+}

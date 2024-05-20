@@ -29,6 +29,20 @@ int main()
 
     myZoo->print();
 
+    if(dog>bird)
+    {
+        std::cout << "shuny meca" << std::endl;
+    }
+    else if(dog==bird)
+    {
+        std::cout << "nuyn tariqi en" << std::endl;
+    }
+    else
+    {
+        std::cout << "city meca" << std::endl;
+    }
+    
+
     zoo* hiszoo = zoo::getInstance();
 
     return 0;

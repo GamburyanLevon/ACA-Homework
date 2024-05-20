@@ -29,3 +29,16 @@ int Dog::getCount() const
 {
     return count;
 }
+int Dog::getAge()
+{
+    return age;
+}
+Dog::Dog(Dog&& obj) : Animal(obj.name, obj.age, obj.weight)
+{
+    breed = obj.breed;
+    
+    obj.name = " ";
+    obj.age = 0;
+    obj.weight = 0;
+    obj.breed = " ";
+}

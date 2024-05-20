@@ -29,3 +29,16 @@ int Cat::getCount() const
 {
     return count;
 }
+int Cat::getAge()
+{
+    return age;
+}
+Cat::Cat(Cat&& obj) : Animal(obj.name, obj.age, obj.weight)
+{
+    color = obj.color;
+
+    obj.name = " ";
+    obj.age = 0;
+    obj.color = " ";
+    obj.weight = 0;
+}

@@ -30,3 +30,16 @@ int Bird::getCount() const
 {
     return count;
 }
+int Bird::getAge()
+{
+    return age;
+}
+Bird::Bird(Bird&& obj) : Animal(obj.name, obj.age, obj.weight)
+{
+    species = obj.species;
+    
+    obj.name = " ";
+    obj.age = 0;
+    obj.weight = 0;
+    obj.species = " ";
+}
