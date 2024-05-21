@@ -2,41 +2,22 @@
 #include <fstream>
 #include <string>
 
-enum Type 
-{
-    INTEGER, FLOAT, STRING 
-};
-
-union Value 
+union Data 
 {
     int i;
     float f;
-    char s[50]; 
-}; 
+    char s[50];
 
-struct Data {
-    Type type;
-    Value value;
-
-    Data(int val) {
-        type = INTEGER;
-        value.i = val;
-    }
-
-    Data(float val) 
-    {
-        type = FLOAT;
-        value.f = val;
-    }
-
-    Data(const std::string& val) 
-    {
-        type = STRING;
-        std::strncpy(value.s, val.c_str(), sizeof(value.s));
-        value.s[sizeof(value.s) - 1] = '\0';  
-    }
+    Data() {}
+    ~Data() {}
 };
 
+enum DataType 
+{
+    INTEGER,
+    FLOAT,
+    STRING
+};
 
 bool isDigit(char c) 
 {
@@ -45,28 +26,25 @@ bool isDigit(char c)
 
 bool isInteger(const std::string& str) 
 {
-    if (str.empty())
-    {      
+    if (str.empty()) 
+    {
         return false;
     }
 
-    int pos = 0;
-    bool negative = false;
-
+    size_t pos = 0;
     if (str[pos] == '-') 
     {
-        negative = true;
         ++pos;
     }
 
-    if (pos == str.size()) 
+    if (pos == str.size())
     {
         return false;
     }
 
     while (pos < str.size()) 
     {
-        if (!isDigit(str[pos])) 
+        if (!isDigit(str[pos]))
         {
             return false;
         }
@@ -76,22 +54,35 @@ bool isInteger(const std::string& str)
     return true;
 }
 
-bool isFloat(const std::string& str) 
-{
-    if (str.empty()) return false;
-
-    bool hasDecimal = false; 
-
-    for (char c : str) 
+bool isFloat(const std::string& str) {
+    if (str.empty())
     {
-        if (c == ',') 
+        return false;
+    }
+
+    bool hasDecimal = false;
+    size_t pos = 0;
+
+    if (str[pos] == '-') 
+    {
+        ++pos;
+    }
+
+    while (pos < str.size()) 
+    {
+        if (str[pos] == ',') 
         {
+            if (hasDecimal) 
+            {
+                return false;
+            }
             hasDecimal = true;
         } 
-        else if (!isDigit(c) && c != '-') 
+        else if (!isDigit(str[pos])) 
         {
             return false;
         }
+        ++pos;
     }
 
     return hasDecimal;
@@ -111,17 +102,37 @@ int main() {
         line.erase(0, line.find_first_not_of(" \t\n\r"));
         line.erase(line.find_last_not_of(" \t\n\r") + 1);
 
+        Data data;
+        DataType type;
+
         if (isInteger(line)) 
         {
-            std::cout << "INTEGER " << std::endl;
+            data.i = std::stoi(line);
+            type = INTEGER;
         } 
         else if (isFloat(line)) 
         {
-            std::cout << "FLOAT" << std::endl;
-        }
+            data.f = std::stof(line);
+            type = FLOAT;
+        } 
         else 
         {
-            std::cout << "STRING" << std::endl;
+            std::strncpy(data.s, line.c_str(), sizeof(data.s) - 1);
+            data.s[sizeof(data.s) - 1] = '\0';
+            type = STRING;
+        }
+
+        switch (type) 
+        {
+            case INTEGER:
+                std::cout << "INTEGER: " << data.i << std::endl;
+                break;
+            case FLOAT:
+                std::cout << "FLOAT: " << data.f << std::endl;
+                break;
+            case STRING:
+                std::cout << "STRING: " << data.s << std::endl;
+                break;
         }
     }
 
