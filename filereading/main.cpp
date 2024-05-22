@@ -7,9 +7,6 @@ union Data
     int i;
     float f;
     char s[50];
-
-    Data() {}
-    ~Data() {}
 };
 
 enum DataType 
