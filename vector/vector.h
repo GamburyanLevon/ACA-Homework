@@ -1,24 +1,31 @@
 #pragma once
+#include <initializer_list> 
 
 template <typename T>
 class Vector 
 {
 public:
     Vector();
+    Vector(std::initializer_list<T>);
+    Vector(Vector&&);
+    Vector(const Vector&);
     Vector(const int&);
     ~Vector();
+    Vector& operator=(const Vector&);
+    Vector& operator=(Vector&&); 
 
     void push_back(const T& value);
-    T& operator[](int index);
+    void pop_back();
+    void push_front(const T& value);
+    void pop_front();
+    void insert(const int&, const T&);
+    T& operator[](const int&);
     int length() const;
-    int capacity() const;
-
 private:
-    void resize(const int&);
+    void resize();
 
     T* data;
     int size;
     int cap;
 };
 
-#include "vector.tpp"
