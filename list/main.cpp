@@ -2,6 +2,7 @@
 #include <iostream>
 
 
+
 int main() 
 {
     List<int> list;
@@ -22,9 +23,14 @@ int main()
 
     std::cout << "Has loop: " << std::boolalpha << list.hasLoop() << std::endl;
 
-    list.createLoop(2);
+    list.reverse();
+    list.print();
 
-    std::cout << "Has loop: " << std::boolalpha << list.hasLoop() << std::endl;
+    list.find(1);
+
+    // list.createLoop(1);
+
+    // std::cout << "Has loop: " << std::boolalpha << list.hasLoop() << std::endl;
 
     return 0;
 }

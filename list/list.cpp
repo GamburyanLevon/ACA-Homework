@@ -4,6 +4,23 @@
 template <typename T>
 List<T>::List() : head(nullptr) {}
 
+// template <typename T>
+// List<T>::~List()
+// {
+//     if (head != nullptr)
+//     {
+//         while (head != nullptr)
+//         {
+//             Node<T>* temp = head;
+//             head = head->next; 
+//             Node<T>* temp1 = temp;
+//             temp1->next = nullptr;
+//             delete head;
+            
+//         }
+//     }
+// }
+
 template <typename T>
 void List<T>::insert(T data) 
 {
@@ -92,6 +109,41 @@ void List<T>::createLoop(int index)
     }
     temp->next = loopNode;
 }
+
+template <typename T>
+void List<T>::reverse() 
+{
+    Node<T>* prev = nullptr;
+    Node<T>* current = head;
+    Node<T>* next = nullptr;
+
+    while (current != nullptr) 
+    {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    head = prev; 
+}
+
+template<typename T>
+void List<T>::find(int index)
+{
+    Node<T>* temp = head;
+    int count = 0;
+    while (temp != nullptr) 
+    {
+        if (count == index) 
+        {
+            std::cout << temp->data << std::endl;
+            break;
+        }
+        temp = temp->next;
+        count++;
+    }   
+}
+
 
 template class List<int>;
 template class List<std::string>;

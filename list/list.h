@@ -14,7 +14,9 @@ public:
     void pop_front();
     void print() const;
     bool hasLoop() const;
-    void createLoop(int index);
+    void createLoop(int);
+    void reverse();
+    void find(int);
 };
 
 
