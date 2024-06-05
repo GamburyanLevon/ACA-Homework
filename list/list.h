@@ -16,7 +16,7 @@ public:
     bool hasLoop() const;
     void createLoop(int);
     void reverse();
-    void find(int);
+    T find(int);
 };
 
 

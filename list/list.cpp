@@ -128,20 +128,32 @@ void List<T>::reverse()
 }
 
 template<typename T>
-void List<T>::find(int index)
+T List<T>::find(int index)
 {
-    Node<T>* temp = head;
-    int count = 0;
-    while (temp != nullptr) 
+    if (head == nullptr) 
     {
-        if (count == index) 
+       std::cout << "List is empty" << std::endl;
+    }
+
+    Node<T>* mainPtr = head;
+    Node<T>* refPtr = head;
+
+    for (int i = 0; i < index; ++i) 
+    {
+        if (refPtr == nullptr) 
         {
-            std::cout << temp->data << std::endl;
-            break;
+            std::cout << "out of range" << std::endl;
         }
-        temp = temp->next;
-        count++;
-    }   
+        refPtr = refPtr->next;
+    }
+
+    while (refPtr != nullptr) 
+    {
+        mainPtr = mainPtr->next;
+        refPtr = refPtr->next;
+    }
+
+    return mainPtr->data;
 }
 
 
