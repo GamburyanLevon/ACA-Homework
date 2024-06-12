@@ -1,6 +1,7 @@
 #include "vector.h"
 #include "string"
 
+
 template <typename T>
 Vector<T>::Vector() : data(nullptr), size(0), cap(0) {}
 
@@ -163,7 +164,19 @@ void Vector<T>::resize()
     data = new_data;
 }
 
+template <typename T>
+bool Vector<T>::empty() const
+{
+    return size == 0;
+}
+
+template <typename T>
+T& Vector<T>::back()
+{
+    return data[size-1];
+}
+
+
 template class Vector<int>;
-template class Vector<std::string>;
 template class Vector<double>;
 
