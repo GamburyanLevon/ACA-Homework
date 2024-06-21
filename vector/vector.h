@@ -22,6 +22,7 @@ public:
     int length() const;
     bool empty() const;
     T &back();
+    void reserve(int);
     class Iterator
     {
     public:

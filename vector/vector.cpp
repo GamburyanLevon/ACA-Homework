@@ -137,8 +137,6 @@ void Vector<T>::insert(const int& index, const T& value)
     ++size;
 }
 
-
-
 template <typename T>
 T& Vector<T>::operator[](const int& index) 
 {
@@ -174,6 +172,14 @@ template <typename T>
 T& Vector<T>::back()
 {
     return data[size-1];
+}
+
+template <typename T>
+void Vector<T>::reserve(int new_cap)
+{
+    if(new_cap <= cap)
+        return;
+    cap = new_cap;
 }
 
 
