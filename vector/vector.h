@@ -1,5 +1,6 @@
 #pragma once
 #include <initializer_list>
+#include "exeption.h"
 
 template <typename T>
 class Vector
@@ -23,13 +24,15 @@ public:
     bool empty() const;
     T &back();
     void reserve(int);
+    T& at(int );
+    const T& at(int ) const;
     class Iterator
     {
     public:
         Iterator(T *ptr) : current(ptr) {}
         T &operator*()
         {
-             return *current; 
+            return *current; 
         }
         Iterator &operator++()
         {

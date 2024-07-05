@@ -3,6 +3,7 @@
 
 int main() {
     Vector<int> vec1{1, 2, 3, 4, 5};
+    Vector<int> vec2{1, 9};
     
     // std::cout << "vec1: ";
     // for (int i = 0; i < vec1.length(); ++i) 
@@ -38,17 +39,26 @@ int main() {
     //     std::cout << vec2[i] << " ";
     // }
     // std::cout << std::endl;
-
-    for (auto it = vec1.begin(); it != vec1.end(); ++it) {
-        std::cout << *it << " ";
+    try 
+    {
+        std::cout << vec1.at(1) << std::endl;
+        std::cout << vec2.at(3) << std::endl; 
+    } 
+    catch (const std::out_of_range& e) 
+    {
+        std::cerr << e.what() << std::endl;
     }
-    std::cout << std::endl;
 
-    std::cout << "Vector elements in reverse: ";
-    for (auto rit = vec1.rbegin(); rit != vec1.rend(); --rit) {
-        std::cout << *rit << " ";
-    }
-    std::cout << std::endl;
+    // for (auto it = vec1.begin(); it != vec1.end(); ++it) {
+    //     std::cout << *it << " ";
+    // }
+    // std::cout << std::endl;
+
+    // std::cout << "Vector elements in reverse: ";
+    // for (auto rit = vec1.rbegin(); rit != vec1.rend(); --rit) {
+    //     std::cout << *rit << " ";
+    // }
+    // std::cout << std::endl;
 
 
     return 0;

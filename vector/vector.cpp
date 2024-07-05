@@ -182,6 +182,26 @@ void Vector<T>::reserve(int new_cap)
     cap = new_cap;
 }
 
+template <typename T>
+T& Vector<T>::at(int index) 
+{
+    if (index >= size) 
+    {
+        throw myexception("Index " + std::to_string(index) + " is out of range");
+    }
+    return data[index];
+}
+
+template <typename T>
+const T& Vector<T>::at(int index) const 
+{
+    if (index >= size) 
+    {
+        throw myexception("Index " + std::to_string(index) + " is out of range");
+    }
+    return data[index];
+}
+
 
 template class Vector<int>;
 template class Vector<double>;
