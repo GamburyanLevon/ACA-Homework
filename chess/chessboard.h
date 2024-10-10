@@ -8,12 +8,14 @@ private:
     static bool isInBoard;
 public:
     chessboard();
-    void placepiece(const std::string&, figure*);
-    bool checkmateinone();
+   ~chessboard();
+    void placePiece(figure*);
+    bool checkmateInOne(const std::string&);
+    bool checkmateInTwo();
     bool isCheckmate(const std::string&);
-    bool ischeck(const std::string&);
+    bool isCheck(const std::string&);
     void print();
-    static bool get();
-    bool cancapture(const std::string&);
-    ~chessboard();
+    static bool getPlacement();
+    bool canCapture(const std::string&);
+    bool canPlaceKingAt(int, int);
 };

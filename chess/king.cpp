@@ -20,11 +20,14 @@ bool king::isAttacking(const std::string& p, figure* board[8][8])
 
     int rowDiff = abs(newRow - startRow);
     int colDiff = abs(newCol - startCol);
-    if ((rowDiff > 1 || colDiff > 1)) 
+    if ((rowDiff > 1 || colDiff > 1))
     {
         return false;
     }
-
+    if(p[1]-'1'>=8 || p[1]-'1'< 0 || p[0]-'A' < 0 || p[0]-'A' >= 8)
+    {
+        return true;
+    }
     return true; 
 }
 void king::move(const std::string& newPos)

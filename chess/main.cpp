@@ -12,31 +12,35 @@ int main()
 {
     chessboard board;
 
-    board.placepiece("B8", new queen("B8", "White"));
-    // board.placepiece("G7", new pawn("G7", "White"));
-    // board.placepiece("A7", new rook("A7", "White"));
-    // board.placepiece("C2", new rook("C2", "White"));
-    // board.placepiece("H4", new rook("H4", "White"));
-    // board.placepiece("G1", new bishop("G1", "White"));
-    // board.placepiece("G3", new bishop("G3", "White"));
-    // board.placepiece("C7", new pawn("C7", "White"));
-    // board.placepiece("A1", new pawn("A1", "White"));
-    board.placepiece("A8", new king("A8", "Black"));
-    board.placepiece("C8", new king("C8", "White"));
-    // board.placepiece("B1", new rook("B1", "White"));
-    // board.placepiece("A7", new rook("A7", "White"));
-    // board.placepiece("F6", new knight("F6", "White"));
+    board.placePiece(new queen("G1", "White"));
+    // board.placePiece(new pawn("E7", "White"));
+    // board.placePiece(new rook("A7", "White"));
+    // board.placePiece(new rook("C2", "White"));
+    // board.placePiece(new rook("H4", "White"));
+    // board.placePiece(new bishop("G1", "White"));
+    // board.placePiece(new bishop("G3", "White"));
+    // board.placePiece(new pawn("C7", "White"));
+    // board.placePiece(new pawn("A1", "White"));
+    board.placePiece(new king("G8", "Black"));
+    board.placePiece(new king("G6", "White"));
+    // board.placePiece(new queen("A5", "White"));
+    // board.placePiece(new rook("B1", "White"));
+    // board.placePiece(new rook("A7", "White"));
+    // board.placePiece(new knight("F6", "White"));
 
-    if (board.get())
+    if (board.getPlacement())
     {
         board.print();
     
-        std::cout << std::endl;
-        if (!board.checkmateinone())
+        if (!board.checkmateInTwo())
         {
             std::cout << "there is no mate";
         }
-    
+        else
+        {
+            // board.print();
+            std::cout << "After this is mate in one" << std::endl;
+        }
         std::cout << std::endl;
     }
     

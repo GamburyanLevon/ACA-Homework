@@ -5,7 +5,7 @@ class rook : public figure
 {
 public:
     rook(const std::string&, const std::string&);
-    ~rook();
+    ~rook() = default;
     virtual bool isAttacking(const std::string&, figure* board[8][8]);
     virtual void move(const std::string&);
     void print() override;

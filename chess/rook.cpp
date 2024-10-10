@@ -6,10 +6,6 @@ rook::rook(const std::string& position, const std::string& color) : figure(posit
 {
     symbol = 'R';
 }
-rook::~rook()
-{
-
-}
 bool rook::isAttacking(const std::string& p, figure* board[8][8])
 {
     int newRow = p[1] - '1';
